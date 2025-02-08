@@ -9,11 +9,7 @@ services:
       ./manage.py collectstatic --noinput &&
       ./manage.py makemigrations &&
       ./manage.py migrate &&
-      echo \"from django.contrib.auth import get_user_model; 
-      User = get_user_model(); 
-      User.objects.filter(username='admin').exists() or 
-      User.objects.create_superuser(username='admin', email='admin@example.com', password='admin')\" | ./manage.py shell &&
-      gunicorn -b 0.0.0.0:8000 kino_site.wsgi:application"
+      gunicorn -b 0.0.0.0:8000 mysite.wsgi:application"
     volumes:
       - .:/app
       - static_volume:/app/static
