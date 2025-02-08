@@ -17,6 +17,7 @@ router.register(r'feedback', FeedbackView, basename='feedback-list')
 urlpatterns = [
     path('', include(router.urls)),
     path('register', RegisterView.as_view(), name='register-list'),
-    path('login', CustomLoginView.as_view(), name='login-list'),
+    path('login', LoginView.as_view(), name='login-list'),
     path('logout', LogoutView.as_view(), name='logout-list'),
+
 ]
