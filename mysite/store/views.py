@@ -9,7 +9,6 @@ from rest_framework.pagination import PageNumberPagination
 
 from .filters import *
 
-from
 
 
 
@@ -91,6 +90,7 @@ class CarView(viewsets.ModelViewSet):
     ordering_fields = ['price']
     filterset_class = CarFilter
 
+
 class BidView(viewsets.ModelViewSet):
     queryset = Bid.objects.all()
     filter_backends = [DjangoFilterBackend]
@@ -101,7 +101,6 @@ class BidView(viewsets.ModelViewSet):
 
 class FeedbackView(viewsets.ModelViewSet):
     queryset = Feedback.objects.all()
-    filter_backends = [DjangoFilterBackend]
 
     serializer_class = FeedbackSerializer
     pagination_class = PaginationAll
