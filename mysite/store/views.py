@@ -4,10 +4,12 @@ from .serializers import *
 from rest_framework import permissions
 
 from django_filters.rest_framework import DjangoFilterBackend
-
+from rest_framework.filters import SearchFilter,OrderingFilter
 from rest_framework.pagination import PageNumberPagination
 
 from .filters import *
+
+from
 
 
 
@@ -83,8 +85,10 @@ class UserProfileView(viewsets.ModelViewSet):
 class CarView(viewsets.ModelViewSet):
     queryset = Car.objects.all()
     serializer_class = CarSerializer
-    filter_backends = [DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     pagination_class = PaginationAll
+    search_fields = ['description']
+    ordering_fields = ['price']
     filterset_class = CarFilter
 
 class BidView(viewsets.ModelViewSet):
